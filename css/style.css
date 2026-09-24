@@ -1,13 +1,20 @@
 :root {
   --cor-primaria: #3b1145;
-  --cor-secundaria: #e8d8f0;
+  --cor-primaria-escura: #220829;
+  --cor-secundaria: #ebdcf2;
   --cor-destaque: #f2994a;
   --cor-branca: #ffffff;
+  --cor-texto-escuro: #2a0835;
+  --cor-texto-claro: #f7effa;
+  --raio-pilula: 50px;
+  --raio-card: 20px;
 }
 
-html, body {
+html,
+body {
   width: 100%;
-  overflow-x: hidden;
+  background-color: var(--cor-branca);
+  color: var(--cor-texto-escuro);
 }
 
 * {
@@ -20,11 +27,19 @@ html, body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
+/* Cabeçalho e navbar */
 .main-header {
-  background: linear-gradient(135deg, #1f0528 0%, #4a1259 50%, #7d2358 85%, #d96b36 100%);
+  background: linear-gradient(
+    135deg,
+    #1f0528 0%,
+    #40104f 35%,
+    #621b59 65%,
+    #8f3a52 85%,
+    #b85a43 100%
+  );
   color: var(--cor-branca);
   position: sticky;
   top: 0;
@@ -82,14 +97,15 @@ html, body {
   text-decoration: none;
   font-size: 0.85rem;
   font-weight: 500;
-  padding: 5px 12px;
+  padding: 6px 14px;
   border-radius: 20px;
   white-space: nowrap;
-  transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease;
   display: inline-block;
 }
 
 .lista-nav a:hover {
+  background-color: rgba(255, 255, 255, 0.12);
   color: var(--cor-destaque);
 }
 
@@ -101,7 +117,380 @@ html, body {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* REGRAS DE AJUSTE DE TELA E DIMENSÕES */
+/* Seção de início */
+.secao-hero {
+  background: linear-gradient(
+    180deg,
+    #1f0528 0%,
+    #3b1145 45%,
+    #7d2358 100%
+  );
+  color: var(--cor-texto-claro);
+  padding: 60px 0 50px;
+  text-align: center;
+  border-bottom: 3px solid var(--cor-destaque);
+}
+
+.hero-container-central {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.badge-slogan {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--cor-destaque);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  padding: 6px 20px;
+  border-radius: var(--raio-pilula);
+  margin-bottom: 16px;
+  border: 1px solid rgba(242, 153, 74, 0.3);
+}
+
+.titulo-hero {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--cor-branca);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.texto-destaque-dourado {
+  color: var(--cor-destaque);
+}
+
+.subtitulo-hero {
+  font-size: 1.05rem;
+  color: var(--cor-secundaria);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  font-weight: 300;
+}
+
+.acoes-hero {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-pilula {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: var(--raio-pilula);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+}
+
+.btn-roxa {
+  background-color: var(--cor-destaque);
+  color: var(--cor-primaria-escura);
+}
+
+.btn-roxa:hover {
+  background-color: #e08332;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(242, 153, 74, 0.35);
+}
+
+.btn-outline-roxa {
+  background-color: transparent;
+  color: var(--cor-branca);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+}
+
+.btn-outline-roxa:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--cor-branca);
+  transform: translateY(-2px);
+}
+
+/* Seção sobre */
+.secao-limpa {
+  padding: 90px 0;
+  background-color: var(--cor-branca);
+}
+
+.cabecalho-dividido {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 48px;
+  margin-bottom: 56px;
+}
+
+.titulo-destaque {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  color: var(--cor-primaria);
+  flex: 1;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.texto-descricao {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #4a3e50;
+  flex: 1;
+  margin: 0;
+  font-weight: 300;
+}
+
+.grid-cards-pilares {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.card-pilar {
+  border-radius: var(--raio-card);
+  padding: 36px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 280px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(43, 11, 56, 0.12);
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+}
+
+.card-pilar:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(43, 11, 56, 0.25);
+}
+
+.card-pilar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: var(--cor-destaque);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-pilar:hover::before {
+  opacity: 1;
+}
+
+.card-pilar.card-desmistificar {
+  background-color: #3b1145;
+  color: #ffffff;
+  border: 1px solid rgba(242, 153, 74, 0.2);
+}
+
+.card-pilar.card-desmistificar .tag-pilar {
+  color: #f2994a;
+}
+
+.card-pilar.card-desmistificar h3 {
+  color: #ffffff;
+}
+
+.card-pilar.card-desmistificar p {
+  color: #ebdcf2;
+}
+
+.card-pilar.card-permanencia {
+  background-color: #f2994a;
+  color: #220829;
+  border: 1px solid rgba(59, 17, 69, 0.15);
+}
+
+.card-pilar.card-permanencia .tag-pilar {
+  color: #3b1145;
+  font-weight: 800;
+}
+
+.card-pilar.card-permanencia h3 {
+  color: #220829;
+}
+
+.card-pilar.card-permanencia p {
+  color: #3b1145;
+  font-weight: 400;
+}
+
+.card-pilar.card-fortalecimento {
+  background-color: #6b2272;
+  color: #ffffff;
+  border: 1px solid rgba(235, 220, 242, 0.3);
+}
+
+.card-pilar.card-fortalecimento .tag-pilar {
+  color: #f2994a;
+}
+
+.card-pilar.card-fortalecimento h3 {
+  color: #ffffff;
+}
+
+.card-pilar.card-fortalecimento p {
+  color: #f7effa;
+}
+
+.tag-pilar {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.card-pilar h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.55rem;
+  margin: 16px 0 12px;
+}
+
+.card-pilar p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Seção - Por que Ada? */
+.secao-porque-ada {
+  background: linear-gradient(
+    225deg,
+    #d96b36 0%,
+    #7d2358 18%,
+    #4a1259 55%,
+    #1f0528 100%
+  );
+  width: 100%;
+  min-height: calc(100vh - 100px);
+  padding: 80px 0;
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.grid-duas-colunas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  width: 100%;
+}
+
+.conteudo-texto-ada {
+  width: 100%;
+}
+
+.tag-secao {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--cor-destaque);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.secao-porque-ada .titulo-destaque {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  color: var(--cor-branca);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.secao-porque-ada .texto-descricao {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--cor-secundaria);
+  margin-bottom: 24px;
+  font-weight: 300;
+}
+
+.citacao-inspiradora {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--cor-destaque);
+  border-left: 3px solid var(--cor-destaque);
+  padding-left: 16px;
+  margin: 0;
+}
+
+.card-imagem-ada {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.img-ada-circular {
+  max-width: 520px;
+  width: 100%;
+  height: auto;
+  mix-blend-mode: normal;
+
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 1) 40%,
+    rgba(0, 0, 0, 0) 62%
+  );
+
+  mask-image: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 1) 40%,
+    rgba(0, 0, 0, 0) 62%
+  );
+
+  transition: transform 0.3s ease;
+}
+
+.img-ada-circular:hover {
+  transform: scale(1.04);
+}
+
+/* Responsividade */
+@media (max-width: 868px) {
+  .secao-porque-ada {
+    min-height: auto;
+    padding: 60px 0;
+  }
+
+  .titulo-hero {
+    font-size: 2.3rem;
+  }
+
+  .cabecalho-dividido {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .grid-cards-pilares {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-duas-colunas {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .citacao-inspiradora {
+    border-left: none;
+    border-top: 2px solid var(--cor-destaque);
+    padding-left: 0;
+    padding-top: 12px;
+    display: inline-block;
+  }
+}
 
 @media (max-width: 600px) {
   .logo-img {
